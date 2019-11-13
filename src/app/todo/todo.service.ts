@@ -33,6 +33,7 @@ export class TodoService {
     return new Promise(resolve => {
       TODOS.push(data);
       resolve(data);
+      console.log(TODOS);
     });
   }
 

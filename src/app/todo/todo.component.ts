@@ -26,10 +26,10 @@ export class TodoComponent implements OnInit {
     });
   }
 
-  getTodos(query='') {
+  getTodos(query = '') {
     return this.todoService.get(query).then(todos => {
       this.todos = todos;
-      this.activeTasks = this.todos.filter(todo => todo.isDone).length;
+      this.activeTasks = this.todos.filter(todo => !todo.isDone).length;
     });
   }
 

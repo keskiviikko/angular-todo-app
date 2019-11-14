@@ -3,8 +3,10 @@ import { Injectable } from '@angular/core';
 let TODOS = [
   { title: 'Install Angular CLI', isDone: true },
   { title: 'Style app', isDone: true },
-  { title: 'Finish service functionality', isDone: false },
-  { title: 'Setup API', isDone: false },
+  { title: 'Clear completed items', isDone: false },
+  { title: 'Please double click me!', isDone: false },
+  { title: 'Enable CRUD functionality', isDone: true },
+  { title: 'Fix broken checkboxes', isDone: true },
 ];
 
 @Injectable({
@@ -58,5 +60,10 @@ export class TodoService {
       TODOS = TODOS.filter(todo => !todo.isDone);
       resolve(TODOS);
     });
+  }
+
+  toggle(selected) {
+    selected.isDone = !selected.isDone;
+    return Promise.resolve();
   }
 }
